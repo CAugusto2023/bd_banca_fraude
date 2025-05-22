@@ -73,3 +73,7 @@ El banco ha identificado un aumento en el número de fraudes mediante tarjetas d
 - Promedio de gasto por cliente por rubro.
 - Alertas activadas en la última semana.
 
+DIAGRAMA ENTIDAD RELACIÓN
+
+![Diagrama entidad relación](https://github.com/user-attachments/assets/092af056-8c00-48df-91e9-65a961228f8b)
+
