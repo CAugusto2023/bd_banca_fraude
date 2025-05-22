@@ -61,14 +61,15 @@ El banco ha identificado un aumento en el número de fraudes mediante tarjetas d
 
 🧠 Reglas de negocio (simples) para fraude
 
--Si el monto de la transacción supera los S/ 5,000 y el cliente no suele gastar más de S/ 500.
--Si la transacción se realiza desde otro país.
--Si el dispositivo es nuevo y el usuario nunca lo ha usado antes.
--Si hay múltiples transacciones en menos de 2 minutos.
+- Si el monto de la transacción supera los S/ 5,000 y el cliente no suele gastar más de S/ 500.
+- Si la transacción se realiza desde otro país.
+- Si el dispositivo es nuevo y el usuario nunca lo ha usado antes.
+- Si hay múltiples transacciones en menos de 2 minutos.
 
 📊 Consultas SQL esperadas
 
--Total de transacciones fraudulentas por cliente.
--Comercios con más fraude reportado.
--Promedio de gasto por cliente por rubro.
--Alertas activadas en la última semana.
+- Total de transacciones fraudulentas por cliente.
+- Comercios con más fraude reportado.
+- Promedio de gasto por cliente por rubro.
+- Alertas activadas en la última semana.
+
