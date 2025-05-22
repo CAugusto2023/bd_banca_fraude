@@ -77,3 +77,8 @@ DIAGRAMA ENTIDAD RELACIÓN
 
 ![Diagrama entidad relación](https://github.com/user-attachments/assets/092af056-8c00-48df-91e9-65a961228f8b)
 
+DISEÑO LÓGICO
+
+![bd_banca_fraude_1](https://github.com/user-attachments/assets/5944905a-f5e0-4292-b122-de48009a6ffb)
+
+
