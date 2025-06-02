@@ -81,4 +81,6 @@ DISEÑO LÓGICO
 
 ![bd_banca_fraude_1](https://github.com/user-attachments/assets/5944905a-f5e0-4292-b122-de48009a6ffb)
 
+MODELO FÍSICO
 
+![image](https://github.com/user-attachments/assets/02665a23-432c-420c-9d3d-c92069cf7874)
