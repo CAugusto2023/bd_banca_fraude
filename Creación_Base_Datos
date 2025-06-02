@@ -1,1 +1,62 @@
+-- Crear la base de datos
+CREATE DATABASE Deteccion_Fraudes;
+GO
+
+USE Deteccion_Fraudes;
+GO
+
+-- Tabla: Clientes
+CREATE TABLE Clientes (
+    id_cliente INT PRIMARY KEY IDENTITY(1,1),
+    nombre VARCHAR(50),
+    apellido VARCHAR(50),
+    dni CHAR(8),
+    fecha_nacimiento DATE,
+    direccion VARCHAR(100),
+    ciudad VARCHAR(50),
+    fecha_registro DATE
+);
+
+-- Tabla: Tarjetas
+CREATE TABLE Tarjetas (
+    id_tarjeta INT PRIMARY KEY IDENTITY(1,1),
+    id_cliente INT FOREIGN KEY REFERENCES Clientes(id_cliente),
+    tipo_tarjeta VARCHAR(20), -- Crédito, Débito, Prepago
+    numero_enmascarado VARCHAR(20),
+    fecha_emision DATE,
+    estado VARCHAR(20) -- Activa, Bloqueada, Vencida
+);
+
+-- Tabla: Comercios
+CREATE TABLE Comercios (
+    id_comercio INT PRIMARY KEY IDENTITY(1,1),
+    nombre_comercio VARCHAR(100),
+    rubro VARCHAR(50), -- Retail, Tecnología, Restaurante, etc.
+    ciudad VARCHAR(50),
+    pais VARCHAR(50)
+);
+
+-- Tabla: Transacciones
+CREATE TABLE Transacciones (
+    id_transaccion INT PRIMARY KEY IDENTITY(1,1),
+    id_tarjeta INT FOREIGN KEY REFERENCES Tarjetas(id_tarjeta),
+    id_comercio INT FOREIGN KEY REFERENCES Comercios(id_comercio),
+    fecha_hora DATETIME,
+    monto DECIMAL(10, 2),
+    ubicacion VARCHAR(100),
+    dispositivo VARCHAR(20), -- Web, App, POS
+    ip_sospechosa BIT,
+    autenticacion VARCHAR(20), -- PIN, Biometría, Token
+    es_fraude BIT,
+    puntuacion_riesgo FLOAT NULL
+);
+
+-- Tabla: Historial de alertas
+CREATE TABLE Historial_alertas (
+    id_alerta INT PRIMARY KEY IDENTITY(1,1),
+    id_transaccion INT FOREIGN KEY REFERENCES Transacciones(id_transaccion),
+    tipo_alerta VARCHAR(100), -- Monto inusual, Ubicación sospechosa, etc.
+    fecha_alerta DATETIME,
+    estado_alerta VARCHAR(20) -- Pendiente, Confirmada, Falsa
+);
 
