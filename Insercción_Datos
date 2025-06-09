@@ -1,1 +1,119 @@
+-- SELECCIONAR LA BASE DE DATOS
+USE Deteccion_Fraudes;
+GO
+
+-- INSERCCIÓN DE DATOS DE Clientes
+INSERT INTO Clientes (nombre, apellido, dni, fecha_nacimiento, direccion, ciudad, fecha_registro) VALUES
+('Lucía', 'Gonzales', '75293421', '1978-08-24', 'Av. La Marina 123', 'Lima', '2021-05-10'),
+('Carlos', 'Ramírez', '81236741', '1982-11-02', 'Jr. Amazonas 450', 'Arequipa', '2020-08-15'),
+('María', 'Torres', '78342156', '1990-03-19', 'Calle Los Álamos 100', 'Trujillo', '2022-01-25'),
+('Pedro', 'Fernández', '76124859', '1985-07-30', 'Av. Brasil 321', 'Cusco', '2021-07-14'),
+('Ana', 'Vega', '74532198', '1995-12-11', 'Calle Bellavista 77', 'Piura', '2020-09-03'),
+('Diego', 'López', '72413985', '1988-01-21', 'Jr. Junín 998', 'Tacna', '2022-04-20'),
+('Sofía', 'Chávez', '73659841', '1992-06-16', 'Av. Grau 1500', 'Chiclayo', '2023-02-12'),
+('Jorge', 'Cáceres', '75896412', '1975-09-05', 'Av. Industrial 455', 'Lambayeque', '2021-06-18'),
+('Carmen', 'Huamán', '76523149', '1987-10-09', 'Calle Lima 12', 'Huancayo', '2020-11-01'),
+('Luis', 'Salazar', '79812356', '1981-04-08', 'Jr. Arequipa 58', 'Iquitos', '2019-12-29'),
+('Valeria', 'Muñoz', '71485963', '1996-02-15', 'Av. Ejército 700', 'Lima', '2023-06-01'),
+('Raúl', 'Delgado', '72865497', '1979-03-25', 'Calle Puno 310', 'Arequipa', '2022-10-17'),
+('Patricia', 'Quispe', '75123984', '1984-11-13', 'Jr. Tacna 45', 'Cusco', '2021-01-10'),
+('Eduardo', 'Campos', '79315462', '1991-05-19', 'Av. Arequipa 999', 'Trujillo', '2020-03-22'),
+('Camila', 'Ríos', '78643159', '1986-06-04', 'Calle Libertad 33', 'Piura', '2019-08-30'),
+('Fernando', 'Aguilar', '71352694', '1976-08-22', 'Av. San Martín 400', 'Tacna', '2022-12-06'),
+('Isabel', 'Ruiz', '76891452', '1993-01-12', 'Jr. Loreto 120', 'Chiclayo', '2021-03-18'),
+('Mario', 'Ortega', '75469831', '1983-07-09', 'Av. Colonial 250', 'Lambayeque', '2020-07-21'),
+('Daniela', 'Castro', '77751236', '1994-10-03', 'Calle Misti 44', 'Huancayo', '2023-03-10'),
+('José', 'Navarro', '71984365', '1980-12-28', 'Jr. Bolognesi 87', 'Iquitos', '2022-09-05');
+
+-- INSERCCIÓN DE DATOS DE Tarjetas
+INSERT INTO Tarjetas (id_cliente, tipo_tarjeta, numero_enmascarado, fecha_emision, estado) VALUES
+(1, 'Crédito', '****-****-****-1234', '2022-06-01', 'Activa'),
+(2, 'Débito', '****-****-****-4321', '2021-04-10', 'Activa'),
+(3, 'Prepago', '****-****-****-5678', '2023-01-15', 'Activa'),
+(4, 'Crédito', '****-****-****-8765', '2020-09-25', 'Vencida'),
+(5, 'Débito', '****-****-****-3456', '2022-11-08', 'Bloqueada'),
+(6, 'Crédito', '****-****-****-6543', '2021-02-18', 'Activa'),
+(7, 'Prepago', '****-****-****-7890', '2023-03-30', 'Activa'),
+(8, 'Débito', '****-****-****-0987', '2020-05-21', 'Vencida'),
+(9, 'Crédito', '****-****-****-1122', '2021-12-12', 'Bloqueada'),
+(10, 'Débito', '****-****-****-2211', '2022-08-09', 'Activa'),
+(11, 'Prepago', '****-****-****-3344', '2020-07-03', 'Vencida'),
+(12, 'Crédito', '****-****-****-4433', '2023-02-14', 'Activa'),
+(13, 'Débito', '****-****-****-5566', '2021-09-26', 'Activa'),
+(14, 'Prepago', '****-****-****-6655', '2022-10-10', 'Bloqueada'),
+(15, 'Crédito', '****-****-****-7788', '2020-03-05', 'Vencida'),
+(16, 'Débito', '****-****-****-8877', '2021-06-22', 'Activa'),
+(17, 'Prepago', '****-****-****-9900', '2023-04-07', 'Activa'),
+(18, 'Crédito', '****-****-****-0099', '2020-01-30', 'Bloqueada'),
+(19, 'Débito', '****-****-****-1235', '2021-11-11', 'Activa'),
+(20, 'Prepago', '****-****-****-5432', '2022-05-19', 'Activa');
+
+--- INSERCCIÓN DE DATOS DE Comercios
+INSERT INTO Comercios (nombre_comercio, rubro, ciudad, pais) VALUES
+('Supermercados Perú', 'Retail', 'Lima', 'Perú'),
+('ElectroTech', 'Tecnología', 'Arequipa', 'Perú'),
+('Restaurante El Sabor', 'Restaurante', 'Cusco', 'Perú'),
+('Farmacias Vida', 'Salud', 'Trujillo', 'Perú'),
+('Tiendas Mundo', 'Retail', 'Piura', 'Perú'),
+('GamerZone', 'Tecnología', 'Lima', 'Perú'),
+('Café Central', 'Restaurante', 'Chiclayo', 'Perú'),
+('Moda Express', 'Moda', 'Tacna', 'Perú'),
+('Mega Hogar', 'Retail', 'Huancayo', 'Perú'),
+('TechNova', 'Tecnología', 'Iquitos', 'Perú'),
+('CinePlus', 'Entretenimiento', 'Lima', 'Perú'),
+('Panadería Delicia', 'Alimentos', 'Arequipa', 'Perú'),
+('ElectroHouse', 'Tecnología', 'Cusco', 'Perú'),
+('Pollería San Juan', 'Restaurante', 'Trujillo', 'Perú'),
+('Ópticas Visión', 'Salud', 'Lambayeque', 'Perú'),
+('Tiendas Aurora', 'Retail', 'Piura', 'Perú'),
+('Pastelería Dulce Amor', 'Alimentos', 'Tacna', 'Perú'),
+('Zapatería Elegante', 'Moda', 'Huancayo', 'Perú'),
+('Hotel El Paraíso', 'Hotelería', 'Iquitos', 'Perú'),
+('Centro de Copias', 'Servicios', 'Lima', 'Perú');
+
+-- INSERCCIÓN DE DATOS DE Transacciones
+INSERT INTO Transacciones (id_tarjeta, id_comercio, fecha_hora, monto, ubicacion, dispositivo, ip_sospechosa, autenticacion, es_fraude, puntuacion_riesgo) VALUES
+(1, 1, '2023-06-01 12:34:56', 250.00, 'Lima', 'POS', 0, 'PIN', 0, 0.10),
+(2, 2, '2023-06-01 15:12:10', 1300.00, 'Arequipa', 'Web', 1, 'Token', 1, 0.87),
+(3, 3, '2023-06-02 08:45:30', 78.00, 'Cusco', 'App', 0, 'PIN', 0, 0.20),
+(4, 4, '2023-06-02 09:20:40', 45.00, 'Trujillo', 'POS', 0, 'PIN', 0, 0.09),
+(5, 5, '2023-06-02 13:30:00', 2500.00, 'Piura', 'Web', 1, 'Token', 1, 0.95),
+(6, 6, '2023-06-03 10:10:15', 200.00, 'Lima', 'App', 0, 'Biometría', 0, 0.15),
+(7, 7, '2023-06-03 11:55:25', 60.00, 'Chiclayo', 'POS', 0, 'PIN', 0, 0.12),
+(8, 8, '2023-06-03 14:22:17', 80.00, 'Tacna', 'Web', 1, 'Token', 1, 0.81),
+(9, 9, '2023-06-04 17:00:05', 320.00, 'Huancayo', 'POS', 0, 'PIN', 0, 0.21),
+(10, 10, '2023-06-04 18:10:45', 450.00, 'Iquitos', 'App', 0, 'Biometría', 0, 0.19),
+(11, 11, '2023-06-05 09:20:35', 100.00, 'Lima', 'POS', 0, 'PIN', 0, 0.10),
+(12, 12, '2023-06-05 10:15:47', 55.00, 'Arequipa', 'Web', 1, 'Token', 1, 0.72),
+(13, 13, '2023-06-05 12:30:00', 980.00, 'Cusco', 'App', 1, 'PIN', 1, 0.65),
+(14, 14, '2023-06-06 07:45:50', 22.00, 'Trujillo', 'POS', 0, 'PIN', 0, 0.05),
+(15, 15, '2023-06-06 08:55:15', 3100.00, 'Lambayeque', 'Web', 1, 'Token', 1, 0.99),
+(16, 16, '2023-06-06 13:00:00', 35.00, 'Piura', 'POS', 0, 'PIN', 0, 0.08),
+(17, 17, '2023-06-06 14:10:30', 49.50, 'Tacna', 'App', 0, 'Biometría', 0, 0.07),
+(18, 18, '2023-06-07 10:40:00', 62.30, 'Huancayo', 'POS', 0, 'PIN', 0, 0.11),
+(19, 19, '2023-06-07 11:20:10', 770.00, 'Iquitos', 'Web', 1, 'Token', 1, 0.85),
+(20, 20, '2023-06-07 15:00:00', 9.90, 'Lima', 'App', 0, 'Biometría', 0, 0.03);
+
+-- INSERCCIÓN DE DATOS DE Historial_alertas
+INSERT INTO Historial_alertas (id_transaccion, tipo_alerta, fecha_alerta, estado_alerta) VALUES
+(2, 'Monto inusualmente alto', '2023-06-01 15:12:20', 'Pendiente'),
+(5, 'Ubicación sospechosa', '2023-06-02 13:30:10', 'Confirmada'),
+(8, 'IP no registrada', '2023-06-03 14:22:25', 'Falsa'),
+(12, 'Frecuencia de uso anómala', '2023-06-05 10:15:55', 'Pendiente'),
+(13, 'Intento de acceso fallido', '2023-06-05 12:30:05', 'Confirmada'),
+(15, 'Monto inusualmente alto', '2023-06-06 08:55:20', 'Pendiente'),
+(19, 'Ubicación e IP desconocida', '2023-06-07 11:20:20', 'Confirmada'),
+(1, 'Consulta inusual', '2023-06-01 12:35:00', 'Falsa'),
+(4, 'Repetición de transacción', '2023-06-02 09:20:45', 'Pendiente'),
+(6, 'Dispositivo nuevo detectado', '2023-06-03 10:10:20', 'Falsa'),
+(7, 'Compra a medianoche', '2023-06-03 11:55:30', 'Pendiente'),
+(9, 'Compra en comercio no habitual', '2023-06-04 17:00:10', 'Falsa'),
+(10, 'Intento de doble autenticación', '2023-06-04 18:10:50', 'Falsa'),
+(11, 'Movimiento en horario no habitual', '2023-06-05 09:20:40', 'Pendiente'),
+(14, 'Ubicación nueva detectada', '2023-06-06 07:45:55', 'Confirmada'),
+(16, 'Comercio no frecuente', '2023-06-06 13:00:05', 'Falsa'),
+(17, 'Consumo duplicado', '2023-06-06 14:10:35', 'Falsa'),
+(18, 'IP sospechosa', '2023-06-07 10:40:05', 'Pendiente'),
+(3, 'Comportamiento no habitual', '2023-06-02 08:45:35', 'Pendiente'),
+(20, 'Compra menor de riesgo', '2023-06-07 15:00:05', 'Falsa');
 
