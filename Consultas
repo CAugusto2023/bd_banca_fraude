@@ -1,1 +1,52 @@
+-- Listar todos los clientes registrados
 
+SELECT id_cliente, nombre, apellido, dni, fecha_registro
+FROM Clientes;
+
+-- Obtener las tarjetas activas por cliente
+
+SELECT c.nombre, c.apellido, t.numero_enmascarado, t.tipo_tarjeta
+FROM Clientes c
+JOIN Tarjetas t ON c.id_cliente = t.id_cliente
+WHERE t.estado = 'Activa';
+
+-- Listar transacciones con posible IP sospechosa
+
+SELECT id_transaccion, id_tarjeta, fecha_hora, monto, ip_sospechosa
+FROM Transacciones
+WHERE ip_sospechosa = 1;
+
+-- Detectar transacciones fraudulentas con autenticación débil
+
+SELECT t.*
+FROM Transacciones t
+WHERE es_fraude = 1
+  AND autenticacion IN ('PIN', 'Token'); -- No incluye Biometría
+
+-- Consultar alertas activadas en las últimas 24 horas
+
+SELECT ha.*, tr.monto, tr.fecha_hora
+FROM Historial_alertas ha
+JOIN Transacciones tr ON ha.id_transaccion = tr.id_transaccion
+WHERE ha.fecha_alerta >= DATEADD(HOUR, -24, GETDATE());
+
+-- Ranking de comercios con más fraudes detectados
+
+SELECT c.nombre_comercio, COUNT(*) AS total_fraudes
+FROM Transacciones t
+JOIN Comercios c ON t.id_comercio = c.id_comercio
+WHERE t.es_fraude = 1
+GROUP BY c.nombre_comercio
+ORDER BY total_fraudes DESC;
+
+-- Hábitos de consumo: promedio mensual por cliente
+
+SELECT cl.id_cliente, cl.nombre, cl.apellido,
+       FORMAT(t.fecha_hora, 'yyyy-MM') AS mes,
+       COUNT(*) AS total_transacciones,
+       AVG(t.monto) AS promedio_monto
+FROM Clientes cl
+JOIN Tarjetas ta ON cl.id_cliente = ta.id_cliente
+JOIN Transacciones t ON ta.id_tarjeta = t.id_tarjeta
+GROUP BY cl.id_cliente, cl.nombre, cl.apellido, FORMAT(t.fecha_hora, 'yyyy-MM')
+ORDER BY cl.id_cliente, mes;
